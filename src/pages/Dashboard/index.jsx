@@ -17,7 +17,6 @@ function Dashboard({ authenticated, setAuthenticated }) {
   const history = useHistory();
   const [user] =
     useState(JSON.parse(localStorage.getItem("@KenzieHub:user"))) || "";
-  const { name, course_module } = user;
   const [open, setOpen] = useState(false);
   const [showTecs, setShowTecs] = useState(false);
   const [tecs, setTecs] = useState([]);
@@ -26,10 +25,12 @@ function Dashboard({ authenticated, setAuthenticated }) {
   const handleClose = () => setOpen(false);
 
   function handleTecs() {
-    api.get(`/users/${user.id}`).then((response) => {
-      const arrayTecs = response.data.techs;
-      setTecs(arrayTecs);
-    });
+    if (user) {
+      api.get(`/users/${user.id}`).then((response) => {
+        const arrayTecs = response.data.techs;
+        setTecs(arrayTecs);
+      });
+    }
   }
 
   function handleShowTecs() {
@@ -74,8 +75,8 @@ function Dashboard({ authenticated, setAuthenticated }) {
           </ButtonBlack>
         </ContainerLogoButton>
         <ContainerCard>
-          <h2>Olá, {name}</h2>
-          <span>{course_module}</span>
+          <h2>Olá, {user.name}</h2>
+          <span>{user.course_module}</span>
         </ContainerCard>
         <ContainerTitle>
           <h4>Tecnologias</h4>
