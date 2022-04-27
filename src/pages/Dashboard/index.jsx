@@ -26,13 +26,10 @@ function Dashboard({ authenticated, setAuthenticated }) {
   const handleClose = () => setOpen(false);
 
   function handleTecs() {
-    api
-      .get(`/users/${user.id}`)
-      .then((response) => {
-        const arrayTecs = response.data.techs;
-        setTecs(arrayTecs);
-      })
-      .catch((err) => console.log(err));
+    api.get(`/users/${user.id}`).then((response) => {
+      const arrayTecs = response.data.techs;
+      setTecs(arrayTecs);
+    });
   }
 
   function handleShowTecs() {

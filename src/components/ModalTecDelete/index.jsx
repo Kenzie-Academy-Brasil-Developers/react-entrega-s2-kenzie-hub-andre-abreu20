@@ -32,19 +32,17 @@ function ModalTecDelete({ openModal, handleModal, tec }) {
   );
 
   function removeTec() {
-    console.log(id);
-    console.log(token);
     api
       .delete(`/users/techs/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((a) => {
+      .then((_) => {
         toast.success("Tecnologia removida com sucesso!");
         handleModal();
       })
-      .catch((err) => {
+      .catch((_) => {
         toast.error("Falha ao remover Tecnologia");
       });
   }
@@ -67,6 +65,7 @@ function ModalTecDelete({ openModal, handleModal, tec }) {
               <Input
                 label="Nome do Projeto"
                 placeholder={title}
+                value={title}
                 register={register}
                 name="title"
               />
