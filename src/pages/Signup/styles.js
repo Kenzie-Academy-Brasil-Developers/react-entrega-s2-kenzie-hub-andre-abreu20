@@ -13,7 +13,7 @@ export const Container = styled.div`
       font-size: 1rem;
       margin-bottom: 17px;
     }
-    span {
+    > span {
       font-size: 1rem;
       text-align: center;
       color: var(--gray1);

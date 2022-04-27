@@ -13,7 +13,7 @@ export const Container = styled.div`
       font-size: 1rem;
       margin-bottom: 17px;
     }
-    span {
+    > span {
       font-size: small;
       margin-top: 38px;
       text-align: center;

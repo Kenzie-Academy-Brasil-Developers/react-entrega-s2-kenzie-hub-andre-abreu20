@@ -36,7 +36,7 @@ export const ContainerCard = styled.div`
   border-bottom: 1px solid var(--gray3);
   margin-top: 100px;
   padding: 20px 0 20px 0;
-  > span {
+  span {
     font-weight: 400;
     color: var(--gray1);
   }
